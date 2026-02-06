@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #0f0f1a;
+  color: #e7e7e7;
+  min-height: 100vh;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4f4f4f;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6d6d6d;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(238, 122, 18, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(238, 122, 18, 0.6); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Glass morphism */
+.glass {
+  background: rgba(26, 26, 46, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-primary-500 hover:bg-primary-600 text-white font-semibold py-3 px-6 rounded-xl 
+         transition-all duration-300 transform hover:scale-[1.02] active:scale-95
+         shadow-lg shadow-primary-500/20 hover:shadow-primary-500/40;
+}
+
+.btn-secondary {
+  @apply bg-dark-800 hover:bg-dark-700 text-white font-medium py-3 px-6 rounded-xl 
+         border border-dark-600 transition-all duration-300;
+}
+
+.btn-danger {
+  @apply bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg 
+         transition-all duration-300;
+}
+
+/* Input styles */
+.input-field {
+  @apply w-full px-4 py-3 bg-dark-900 border border-dark-700 rounded-xl
+         text-white placeholder-dark-400 focus:outline-none focus:ring-2 
+         focus:ring-primary-500 focus:border-transparent transition-all duration-300;
+}
+
+/* Card styles */
+.card {
+  @apply bg-dark-900/80 border border-dark-700/50 rounded-2xl p-6 
+         backdrop-blur-sm transition-all duration-300 hover:border-primary-500/30;
+}
+
+.card-hover {
+  @apply card hover:shadow-lg hover:shadow-primary-500/10 hover:-translate-y-1 cursor-pointer;
+}
